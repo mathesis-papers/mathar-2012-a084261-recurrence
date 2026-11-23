@@ -1,0 +1,41 @@
+{
+  "id": "mathar-2012-a084261-recurrence",
+  "revision": 2,
+  "problem_ids": [
+    "mathar-2012-a084261-recurrence"
+  ],
+  "topic": "Mathar's recurrence conjecture of 30 November 2012 in the FORMULA field of OEIS A084261",
+  "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+  "creators": [
+    {
+      "name": "Ma, Haobo",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Zhang, Wenlin",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "We give an alternative proof of Jovovic's 2003 exponential generating function and resolve Mathar's Conjecture in OEIS A084261, FORMULA, 30 November 2012, for every integer n >= 3. For a(n,t)=sum binomial(n,2k) k! t^(n-2k), the fixed-point-weighted generating function of Fang, Hamaker and Troyka (2020; journal version 2022) yields an explicit polynomial recurrence. A common moment representation also proves the recorded row sums, continued fraction, Hankel product and asymptotic equivalent, the last extending to every fixed real t > 0.",
+  "summary": "A self-contained proof of the recurrence, explicit weighted consequences, and proofs of the directly related OEIS formulas with their original attributions.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean",
+  "coverage": {
+    "universal_recurrence": "All natural n >= 3; declaration D5.S1.Recurrence.MatharA084261.result in the pinned Lean file.",
+    "weighted_recurrence": "Polynomial identity in t for all n >= 3; written proof.",
+    "exponential_generating_function": "Entire identity; written proof of the Jovovic (2003) formula. Weighted factorization credited to Fang-Hamaker-Troyka (2020; 2022).",
+    "triangle": "A161556 row polynomials, row sums and column exponential generating functions; written proof.",
+    "continued_fraction": "Formal Jacobi fraction with diagonal t and beta(r)=ceil(r/2); written proof. Hanna (2006) formula at t=1; general transformation proof credited to Barry (2009), Propositions 4 and 22.",
+    "hankel": "For all n >= 0 and real t, determinant of (a(i+j,t)) equals product ceil(r/2)^(n+1-r); written proof of the A137704 formula.",
+    "asymptotic": "For each fixed real t > 0, a(n,t) ~ sqrt(pi*n)/2 * (n/(2e))^(n/2) * exp(t*sqrt(2n)-t^2/2), through all integer n; written proof. Rousseau (2006) formula at t=1.",
+    "appell": "Derivative of a(n,t) is n*a(n-1,t); written consequence.",
+    "signed_fixed_points": "For independently signed fixed points, summed over sign imbalances, c(n)=a(n,2); recurrence and asymptotic specialization have written proofs. Interpretation credited to Fang-Hamaker-Troyka Section 5.1.",
+    "finite_checks": "881 sequence values, 590 weighted integer instances, 118 polynomial recurrence identities, 120 Appell identities, 305 row evaluations, 305 moment coefficients, 70 Hankel determinants; exact arithmetic.",
+    "outside_coverage": [
+      "A161556 displayed production matrix and links A155856/A156367",
+      "A137704 aerated A003319 comment and Kotesovec (2024) determinant asymptotic",
+      "A002896 lattice-walk formulas",
+      "Other pattern classes and open directions in Fang-Hamaker-Troyka"
+    ]
+  }
+}

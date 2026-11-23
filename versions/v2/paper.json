@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 99407,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "c96afd0e6190035c9018e590bd26315f10615763b43ac8b99d168a25a711f5b6",
+      "sha256": "c96afd0e6190035c9018e590bd26315f10615763b43ac8b99d168a25a711f5b6"
+    },
+    "source": {
+      "bytes": 112032,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "2696efc02adf42461a84ddc26a75b4720efb6c025457e582c9eef71455135cb6",
+      "sha256": "2696efc02adf42461a84ddc26a75b4720efb6c025457e582c9eef71455135cb6"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We give an alternative proof of Jovovic's 2003 exponential generating function and resolve Mathar's Conjecture in OEIS A084261, FORMULA, 30 November 2012, for every integer n >= 3. For a(n,t)=sum binomial(n,2k) k! t^(n-2k), the fixed-point-weighted generating function of Fang, Hamaker and Troyka (2020; journal version 2022) yields an explicit polynomial recurrence. A common moment representation also proves the recorded row sums, continued fraction, Hankel product and asymptotic equivalent, the last extending to every fixed real t > 0.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 99407,
+      "sha256": "c96afd0e6190035c9018e590bd26315f10615763b43ac8b99d168a25a711f5b6",
+      "url": "/api/v1/collected-papers/mathar-2012-a084261-recurrence/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-22T23:43:45.442642357Z",
+    "record": "mathar-2012-a084261-recurrence",
+    "repository_name": "mathar-2012-a084261-recurrence",
+    "source": {
+      "bytes": 112032,
+      "sha256": "2696efc02adf42461a84ddc26a75b4720efb6c025457e582c9eef71455135cb6",
+      "url": "/api/v1/collected-papers/mathar-2012-a084261-recurrence/files/source?version=2"
+    },
+    "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-22T23:43:45.442642357Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "mathar-2012-a084261-recurrence"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s1",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "For $n\\in\\N=\\{0,1,2,\\ldots\\}$ put\n\\begin{equation}\n a_n=\\sum_{k=0}^{\\lfloor n/2\\rfloor}\\binom n{2k}k!.\n\\end{equation}\nThen $a_0=a_1=1$, $a_2=2$, and, for every integer $n\\geq3$,\n\\begin{equation}\n 2a_n-4a_{n-1}+(2-n)a_{n-2}+(n-2)a_{n-3}=0.\n\\end{equation}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s2",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s2",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "For every $n\\geq3$, as an identity of polynomials in $t$,\n\\begin{equation}\n 2a_n(t)-4t\\,a_{n-1}(t)+(2t^2-n)a_{n-2}(t)\n       +t(n-2)a_{n-3}(t)=0.\n\\end{equation}\nThe initial polynomials are $1,t,t^2+1$.\nMoreover, for every complex $z$,\n\\begin{equation}\n F_1(z)=e^z\\left(1+\\frac{\\sqrt\\pi}{2}z e^{z^2/4}\n                                  \\operatorname{erf}(z/2)\\right),\n\\end{equation}\nwhere $\\operatorname{erf}(w)=\\frac{2}{\\sqrt\\pi}\\int_0^w e^{-u^2}\\,du$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s3",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "The row polynomial of OEIS A161556 is $a_n(t)$; in particular its row\nsum is $a_n(1)$. For the array $T(n,j)$, with $0\\leq j\\leq n$,\n\\[\n T(n,j)=\\begin{cases}\\binom nj((n-j)/2)!,&n-j\\text{ even},\\\\\n 0,&n-j\\text{ odd},\\end{cases}\\qquad\n \\sum_{j=0}^n T(n,j)t^j=a_n(t).\n\\]\nIts column exponential generating function is $z^jB(z)/j!$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s4",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s4",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s4",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "For every real $t$ and $n\\geq0$,\n\\begin{equation}\n H_n(t):=\\det(a_{i+j}(t))_{0\\leq i,j\\leq n}\n =\\prod_{r=1}^n\\left\\lceil\\frac r2\\right\\rceil^{n+1-r}>0.\n\\end{equation}\nThe ordinary generating series, interpreted formally, is\n\\begin{equation}\n \\sum_{n\\geq0}a_n(t)z^n\n =\\cfrac{1}{1-tz-\\cfrac{\\beta_1z^2}{1-tz-\n       \\cfrac{\\beta_2z^2}{1-tz-\\cfrac{\\beta_3z^2}{1-tz-\\cdots}}}},\n \\qquad \\beta_r=\\left\\lceil\\frac r2\\right\\rceil.\n\\end{equation}\nAt $t=1$, \\eqref{eq:cf} is Hanna's 17 January 2006 fraction in A084261;\n\\eqref{eq:hankel} is the product in A137704. The bivariate version\nof \\eqref{eq:cf} is the fraction in A161556.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s5",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s5",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s5",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "For each fixed real $t>0$, as $n\\to\\infty$ through all integers,\n\\begin{equation}\n a_n(t)\\sim\\frac{\\sqrt{\\pi n}}2\n       \\left(\\frac n{2e}\\right)^{n/2}\n       \\exp\\left(t\\sqrt{2n}-\\frac{t^2}{2}\\right).\n\\end{equation}\nAt $t=1$ this is Rousseau's 14 March 2006 formula in A084261.\nFang, Hamaker and Troyka reproduce its even-index specialization in\nTable~2, arXiv v3, p.~17, explicitly attributing it to OEIS~\\cite{fang}.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s6",
+      "contributor": null,
+      "identity": "collected:mathar-2012-a084261-recurrence:2:s6",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "b0f7c01b01511ea00428c1b6edad5dd2b372eaf8",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean"
+      },
+      "lineage": "collected:mathar-2012-a084261-recurrence:s6",
+      "macros": {
+        "\\N": "\\mathbb N"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "mathar-2012-a084261-recurrence",
+      "scope": "in_scope",
+      "statement": "Let $c_n$ count the $2143$-I-avoiding involutions on $n$ elements with\neach fixed point independently assigned either of two signs, summing over\nall sign imbalances. Then $c_n=a_n(2)$, $c_0=1$, $c_1=2$, $c_2=5$,\nand for $n\\geq3$,\n\\[\n 2c_n-8c_{n-1}+(8-n)c_{n-2}+2(n-2)c_{n-3}=0.\n\\]\nMoreover $c_n\\sim(\\sqrt{\\pi n}/2)(n/(2e))^{n/2}\n\\exp(2\\sqrt{2n}-2)$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)",
+      "toolchain": null,
+      "version": 2,
+      "work": "mathar-2012-a084261-recurrence"
+    }
+  ]
+}

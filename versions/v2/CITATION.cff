@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012)"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-22"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/mathar-2012-a084261-recurrence?version=2"
+license: "CC-BY-4.0"

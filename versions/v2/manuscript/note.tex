@@ -1,0 +1,501 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\N}{\mathbb N}
+\title{Weighted extensions of Jovovic's 2003 formula:\protect\\
+resolving Mathar's conjecture\protect\\
+(OEIS A084261, FORMULA, 30 November 2012)}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{8 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an alternative proof of Jovovic's 2003 exponential generating
+function and resolve Mathar's ``Conjecture'' in OEIS A084261,
+FORMULA, 30 November 2012, for every integer $n\geq3$.
+For $a_n(t)=\sum_{k=0}^{\lfloor n/2\rfloor}\binom n{2k}k!t^{n-2k}$,
+the fixed-point-weighted generating function of Fang, Hamaker and
+Troyka (2020; journal version 2022) yields an explicit polynomial recurrence.
+A common moment representation also proves the recorded row sums,
+continued fraction, Hankel product and asymptotic equivalent, the last
+extending to every fixed real $t>0$.
+\end{abstract}
+
+\section{The conjecture and its proof}
+The OEIS entry A084261, introduced by Paul Barry in 2003, records Mathar's
+conjecture as a relation between four successive terms of the binomial
+transform of factorial numbers with interpolated zeros~\cite{oeis}.
+The following theorem supplies its full nonnegative-index scope.
+The later enumeration theorem of Fang, Hamaker and Troyka
+\cite[Proposition 4.13 and following example]{fang} supplies the weighted
+generating function used in Section~2, but does not state this recurrence.
+The source gives no starting index; $n\geq3$ makes every index in the displayed
+recurrence nonnegative.
+
+\begin{theorem}\label{thm:main}
+For $n\in\N=\{0,1,2,\ldots\}$ put
+\begin{equation}\label{eq:sum}
+ a_n=\sum_{k=0}^{\lfloor n/2\rfloor}\binom n{2k}k!.
+\end{equation}
+Then $a_0=a_1=1$, $a_2=2$, and, for every integer $n\geq3$,
+\begin{equation}\label{eq:rec}
+ 2a_n-4a_{n-1}+(2-n)a_{n-2}+(n-2)a_{n-3}=0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Define $b_{2j}=j!$, $b_{2j+1}=0$ for $j\geq0$, and, for any sequence $c$, set
+\[
+ T(c,m)=\sum_{k=0}^{m}\binom mk c_k,\qquad
+ T_j(m)=T((b_{k+j})_{k\geq0},m).
+\]
+Thus $T_0(m)=a_m$. Pascal's identity, including its zero endpoint terms, gives
+\begin{equation}\label{eq:pascal}
+ T_j(m+1)=T_j(m)+T_{j+1}(m)\qquad(m,j\geq0).
+\end{equation}
+The seed sequence satisfies
+\begin{equation}\label{eq:seed}
+ 2b_{k+3}+2b_{k+2}-3b_{k+1}-2b_k
+       =k(b_{k+1}+b_k)\qquad(k\geq0).
+\end{equation}
+Indeed, for $k=2j$ the two sides are respectively
+$2(j+1)!-2j!=2j\,j!$ and $2j\,j!$.
+For $k=2j+1$ they are
+$2(j+2)!-3(j+1)!=(2j+1)(j+1)!$ and $(2j+1)(j+1)!$.
+
+We next use the weighted identity
+\begin{equation}\label{eq:weighted}
+ mT_1(m)=\sum_{k=0}^{m}\binom mk k b_{k+1}
+          +\sum_{k=0}^{m}\binom mk k b_k.
+\end{equation}
+To see this, use
+$(m-k)\binom mk=(k+1)\binom m{k+1}$, taking
+$\binom m{m+1}=0$, and reindex:
+\[
+ \sum_{k=0}^{m}(m-k)\binom mk b_{k+1}
+ =\sum_{j=1}^{m+1}j\binom mj b_j
+ =\sum_{j=0}^{m}j\binom mj b_j.
+\]
+Adding $\sum_{k=0}^{m}k\binom mk b_{k+1}$ proves
+\eqref{eq:weighted}, also when $m=0$.
+Multiply \eqref{eq:seed} by $\binom mk$, sum, and use
+\eqref{eq:weighted}. The result is
+\[
+ 2T_3(m)+2T_2(m)-(m+3)T_1(m)-2T_0(m)=0.
+\]
+By \eqref{eq:pascal},
+\begin{align*}
+ T_1(m)&=a_{m+1}-a_m,\\
+ T_2(m)&=a_{m+2}-2a_{m+1}+a_m,\\
+ T_3(m)&=a_{m+3}-3a_{m+2}+3a_{m+1}-a_m.
+\end{align*}
+Substitution gives
+$2a_{m+3}-4a_{m+2}-(m+1)a_{m+1}+(m+1)a_m=0$.
+Set $m=n-3$. The initial values follow directly from \eqref{eq:sum}.
+\end{proof}
+
+The recurrence and the three initial values determine the sequence uniquely:
+the coefficient of $a_n$ is the nonzero constant $2$. At the first two
+admissible indices it gives $a_3=4$ and $a_4=9$.
+
+\section{Generating function and weighted recurrence}
+For a scalar $t$ define the polynomial
+\begin{equation}\label{eq:polynomial}
+ a_n(t)=\sum_{k=0}^{\lfloor n/2\rfloor}\binom n{2k}k!\,t^{n-2k}.
+\end{equation}
+Its exponential generating function is
+\begin{equation}\label{eq:egf}
+ F_t(z)=\sum_{n\geq0}a_n(t)\frac{z^n}{n!}
+ =e^{tz}B(z),\qquad
+ B(z)=\sum_{k\geq0}\frac{k!z^{2k}}{(2k)!}.
+\end{equation}
+This follows by multiplying the two series and comparing coefficients.
+Fang, Hamaker and Troyka~\cite[Proposition 4.13 and its following example,
+arXiv v3, p.~16]{fang} prove this factorization with $t$ marking fixed points in
+their enumeration of $2143$-avoiding involutions. Their interpretation uses
+their involution-containment relation, rather than ordinary permutation
+pattern containment. The proof and example already appear as
+Theorem~1.7 and Section~4.3 in their 31 August 2020 first version.
+The next corollary extracts a differential recurrence from that known
+factorization and reproves Jovovic's recorded formula.
+
+\begin{corollary}\label{cor:weighted}
+For every $n\geq3$, as an identity of polynomials in $t$,
+\begin{equation}\label{eq:weightedrec}
+ 2a_n(t)-4t\,a_{n-1}(t)+(2t^2-n)a_{n-2}(t)
+       +t(n-2)a_{n-3}(t)=0.
+\end{equation}
+The initial polynomials are $1,t,t^2+1$.
+Moreover, for every complex $z$,
+\begin{equation}\label{eq:erf}
+ F_1(z)=e^z\left(1+\frac{\sqrt\pi}{2}z e^{z^2/4}
+                                  \operatorname{erf}(z/2)\right),
+\end{equation}
+where $\operatorname{erf}(w)=\frac{2}{\sqrt\pi}\int_0^w e^{-u^2}\,du$.
+\end{corollary}
+
+\begin{proof}
+The ratio of successive absolute terms in $B(z)$ is
+$|z|^2(k+1)/((2k+2)(2k+1))$, which tends to zero. Thus $B$ is entire.
+Comparing its coefficients gives
+\begin{equation}\label{eq:Bode}
+ 2B''(z)-zB'(z)-2B(z)=0,\qquad B(0)=1,\quad B'(0)=0.
+\end{equation}
+For the coefficient of $z^{2k}$, the first term is
+$2(k+1)!/(2k)!$, while the other two together are
+$(2k+2)k!/(2k)!$; all odd coefficients vanish.
+Substitute $B=e^{-tz}F_t$ to obtain
+\[
+ 2F_t''-(4t+z)F_t'+(2t^2+tz-2)F_t=0.
+\]
+For $m\geq1$ its coefficient of $z^m/m!$ is
+\[
+ 2a_{m+2}(t)-4t\,a_{m+1}(t)+(2t^2-2-m)a_m(t)
+       +tm\,a_{m-1}(t)=0.
+\]
+Set $m=n-2$ to get \eqref{eq:weightedrec}. The constant coefficient
+also gives $2a_2(t)-4t\,a_1(t)+(2t^2-2)a_0(t)=0$.
+
+For \eqref{eq:erf}, set
+$G(z)=e^{z^2/4}\int_0^z e^{-u^2/4}\,du$ and $C(z)=1+zG(z)/2$.
+The identity $G'=zG/2+1$ yields
+\[
+ C'=(1/2+z^2/4)G+z/2,\qquad
+ C''=(3z/4+z^3/8)G+1+z^2/4.
+\]
+Consequently $2C''-zC'-2C=0$, $C(0)=1$, and $C'(0)=0$.
+The differential equation determines successive Taylor coefficients
+uniquely, so $C=B$. Finally,
+$\int_0^z e^{-u^2/4}\,du=\sqrt\pi\operatorname{erf}(z/2)$.
+Equation \eqref{eq:erf} recovers Jovovic's formula in the OEIS entry,
+dated 25 September 2003~\cite{oeis}.
+\end{proof}
+
+\section{Moment consequences: row sums, Hankel determinants and fractions}
+The same weighted family has a positive moment representation:
+\begin{equation}\label{eq:moment}
+ a_n(t)=\int_{\mathbb R}(t+x)^n|x|e^{-x^2}\,dx
+ \qquad(n\geq0,\ t\in\mathbb R).
+\end{equation}
+Indeed the measure has total mass one and its odd moments vanish.
+Its $2k$th moment is
+\[
+ \int_0^\infty u^ke^{-u}\,du=k!.
+\]
+Expansion of $(t+x)^n$ proves \eqref{eq:moment}.
+
+\begin{corollary}\label{cor:triangle}
+The row polynomial of OEIS A161556 is $a_n(t)$; in particular its row
+sum is $a_n(1)$. For the array $T(n,j)$, with $0\leq j\leq n$,
+\[
+ T(n,j)=\begin{cases}\binom nj((n-j)/2)!,&n-j\text{ even},\\
+ 0,&n-j\text{ odd},\end{cases}\qquad
+ \sum_{j=0}^n T(n,j)t^j=a_n(t).
+\]
+Its column exponential generating function is $z^jB(z)/j!$.
+\end{corollary}
+\begin{proof}
+Substitute $j=n-2k$ in the row sum. For the column, put $n=j+2k$:
+\[
+ \binom{j+2k}{j}\frac{k!z^{j+2k}}{(j+2k)!}
+ =\frac{z^j}{j!}\frac{k!z^{2k}}{(2k)!}.
+\]
+This also gives the exponential Riordan description $[B(z),z]$
+in A161556~\cite{oeis-triangle}.
+\end{proof}
+
+\begin{corollary}\label{cor:hankel}
+For every real $t$ and $n\geq0$,
+\begin{equation}\label{eq:hankel}
+ H_n(t):=\det(a_{i+j}(t))_{0\leq i,j\leq n}
+ =\prod_{r=1}^n\left\lceil\frac r2\right\rceil^{n+1-r}>0.
+\end{equation}
+The ordinary generating series, interpreted formally, is
+\begin{equation}\label{eq:cf}
+ \sum_{n\geq0}a_n(t)z^n
+ =\cfrac{1}{1-tz-\cfrac{\beta_1z^2}{1-tz-
+       \cfrac{\beta_2z^2}{1-tz-\cfrac{\beta_3z^2}{1-tz-\cdots}}}},
+ \qquad \beta_r=\left\lceil\frac r2\right\rceil.
+\end{equation}
+At $t=1$, \eqref{eq:cf} is Hanna's 17 January 2006 fraction in A084261;
+\eqref{eq:hankel} is the product in A137704. The bivariate version
+of \eqref{eq:cf} is the fraction in A161556.
+\end{corollary}
+\begin{proof}
+Write $L_m^{(\alpha)}$ for the Laguerre polynomial with Rodrigues formula
+\[
+ L_m^{(\alpha)}(u)=\frac{u^{-\alpha}e^u}{m!}
+       \frac{d^m}{du^m}(e^{-u}u^{m+\alpha}),\qquad\alpha=0,1.
+\]
+Its leading coefficient is $(-1)^m/m!$. For $j<m$, integration by
+parts $m$ times gives
+\[
+ \int_0^\infty u^{\alpha+j}e^{-u}L_m^{(\alpha)}(u)\,du=0.
+\]
+All boundary terms vanish since the differentiated factor has a zero
+of sufficient order at zero and exponential decay at infinity.
+For $j=m$ the same calculation gives
+$(-1)^m\Gamma(m+\alpha+1)$. Multiplying by the leading coefficient
+therefore gives
+\[
+ \int_0^\infty u^\alpha e^{-u}(L_m^{(\alpha)}(u))^2\,du
+ =\frac{\Gamma(m+\alpha+1)}{m!}.
+\]
+These normalizations agree with the standard Laguerre
+conventions~\cite[Sections 18.3 and 18.5]{dlmf}.
+Thus the monic polynomials orthogonal for $|x|e^{-x^2}\,dx$ are
+\[
+ P_{2m}(x)=(-1)^mm!L_m^{(0)}(x^2),\qquad
+ P_{2m+1}(x)=(-1)^mm!xL_m^{(1)}(x^2).
+\]
+Their squared norms are respectively
+$h_{2m}=(m!)^2$ and $h_{2m+1}=m!(m+1)!$.
+For the measure translated by $t$, use $Q_r(y)=P_r(y-t)$.
+The monic change of basis from $1,y,\ldots,y^n$ to $Q_0,\ldots,Q_n$
+is triangular with determinant one. Consequently its moment determinant
+is $\prod_{r=0}^nh_r$. Since $h_0=1$ and
+$h_r/h_{r-1}=\lceil r/2\rceil$, this is \eqref{eq:hankel}.
+It equals $\prod_{k=0}^n\lfloor(k+2)/2\rfloor^{n-k}$, the product
+recorded in A137704~\cite{oeis-hankel}.
+
+Orthogonality and parity give the three-term relation
+\[
+ yQ_r=Q_{r+1}+tQ_r+\beta_rQ_{r-1}\quad(r\geq0),
+\]
+where $Q_{-1}=0$ and $\beta_0=0$.
+Indeed all coefficients below $Q_{r-1}$ vanish by orthogonality;
+the diagonal coefficient before translation is zero by parity, and
+the coefficient of $Q_{r-1}$ is $h_r/h_{r-1}$ by symmetry of
+multiplication by $y$ in the inner product.
+The coefficient of $Q_0$ in $y^nQ_0$ is $a_n(t)$.
+Expanding the relation repeatedly expresses it as a sum over
+nonnegative paths of length $n$ from height zero to zero: an up step
+has weight one, a level step weight $t$, and a down step from height
+$r$ weight $\beta_r$. If $M_r(z)$ counts paths at or above height $r$
+that start and finish at $r$, decomposition at their first return gives
+\[
+ M_r=1+tzM_r+\beta_{r+1}z^2M_{r+1}M_r.
+\]
+Solving successively for $M_r$ proves \eqref{eq:cf} for $M_0$.
+For each fixed coefficient only finitely many heights occur, so the
+infinite fraction is well-defined as a formal power series.
+\end{proof}
+
+The shift of every diagonal coefficient by $t$ is also the general
+binomial-transform rule proved by Barry~\cite[Proposition 4]{barry-cf}.
+His Proposition~22 and its following weighted formula, pp.~17--18,
+give the same even-index transform rule for a sequence with a known
+Stieltjes fraction; thus that transformation rule is prior work as well.
+
+In particular the Hankel product is independent of $t$. The ordinary
+series at $t=1$ has radius zero: $a_{2m}(1)\geq m!$.
+Thus \eqref{eq:cf} asserts formal coefficient identities, not convergence
+of a power series near zero. Also $a_n'(t)=na_{n-1}(t)$ follows by
+differentiating \eqref{eq:egf}, so this is an Appell family.
+
+\section{The asymptotic formula and its weighted extension}
+\begin{corollary}\label{cor:asymptotic}
+For each fixed real $t>0$, as $n\to\infty$ through all integers,
+\begin{equation}\label{eq:asymptotic}
+ a_n(t)\sim\frac{\sqrt{\pi n}}2
+       \left(\frac n{2e}\right)^{n/2}
+       \exp\left(t\sqrt{2n}-\frac{t^2}{2}\right).
+\end{equation}
+At $t=1$ this is Rousseau's 14 March 2006 formula in A084261.
+Fang, Hamaker and Troyka reproduce its even-index specialization in
+Table~2, arXiv v3, p.~17, explicitly attributing it to OEIS~\cite{fang}.
+\end{corollary}
+\begin{proof}
+Split \eqref{eq:moment} into positive and negative $x$.
+The positive part is
+$I_n=\int_0^\infty x e^{\phi_n(x)}\,dx$, with
+$\phi_n(x)=n\log(t+x)-x^2$.
+Its unique maximum is at
+$r=(\sqrt{t^2+2n}-t)/2$, satisfying $n=2r(r+t)$.
+For fixed $y$, Taylor expansion at $r$ gives
+\[
+ \phi_n(r+y)-\phi_n(r)\longrightarrow-2y^2.
+\]
+Since $\phi_n''(x)=-n/(t+x)^2-2\leq-2$ on $x\geq0$,
+the difference is at most $-y^2$. For $r\geq1$, the integrand after
+putting $x=r+y$ and dividing by $r e^{\phi_n(r)}$ is bounded by
+$(1+|y|)e^{-y^2}$ on $y\geq-r$, and is zero otherwise.
+Dominated convergence therefore gives
+\begin{equation}\label{eq:laplace}
+ I_n\sim r e^{\phi_n(r)}\sqrt{\pi/2}.
+\end{equation}
+
+The absolute value of the negative part is bounded by
+$J_n=\int_0^\infty x|t-x|^ne^{-x^2}\,dx$.
+The interval $[0,t]$ contributes at most $t^{n+2}/2=o(I_n)$.
+For large $n$ and $t\leq x\leq2r$,
+\[
+ \left(\frac{x-t}{x+t}\right)^n
+ \leq\exp\left(-\frac{2nt}{2r+t}\right)\longrightarrow0.
+\]
+Thus that interval contributes $o(I_n)$ as well.
+For $x\geq2r$, $|x-t|\leq x+t$ and the concavity bound gives
+\[
+ \int_{2r}^\infty x e^{\phi_n(x)}\,dx
+ \leq e^{\phi_n(r)}\int_r^\infty(r+y)e^{-y^2}\,dy
+ =o(r e^{\phi_n(r)}).
+\]
+Consequently $J_n=o(I_n)$, for either parity of $n$.
+Finally, writing $q=\sqrt{n/2}$, expansion of the displayed value of
+$r$ gives
+\[
+ r=q-t/2+t^2/(8q)+O(q^{-3}),\qquad
+ \phi_n(r)=\frac n2\log\frac n2-\frac n2
+              +t\sqrt{2n}-\frac{t^2}{2}+O(n^{-1/2}).
+\]
+Substitution in \eqref{eq:laplace} proves \eqref{eq:asymptotic}.
+\end{proof}
+
+The condition $t>0$ is essential for this one-sided leading term.
+At $t=0$, $a_{2m}(0)=m!$ and $a_{2m+1}(0)=0$; these exact values
+are not asserted to satisfy \eqref{eq:asymptotic}.
+For negative $t$, the polynomial identity
+$a_n(-t)=(-1)^na_n(t)$ gives the corresponding signed formula.
+
+\begin{corollary}\label{cor:clans}
+Let $c_n$ count the $2143$-I-avoiding involutions on $n$ elements with
+each fixed point independently assigned either of two signs, summing over
+all sign imbalances. Then $c_n=a_n(2)$, $c_0=1$, $c_1=2$, $c_2=5$,
+and for $n\geq3$,
+\[
+ 2c_n-8c_{n-1}+(8-n)c_{n-2}+2(n-2)c_{n-3}=0.
+\]
+Moreover $c_n\sim(\sqrt{\pi n}/2)(n/(2e))^{n/2}
+\exp(2\sqrt{2n}-2)$.
+\end{corollary}
+\begin{proof}
+An involution with $j$ fixed points has $2^j$ sign assignments.
+Use the fixed-point interpretation of $a_n(t)$ and substitute $t=2$
+in Corollaries~\ref{cor:weighted} and \ref{cor:asymptotic}.
+This specializes the clan interpretation noted by Fang, Hamaker and
+Troyka~\cite[Section 5.1]{fang}; no individual sign imbalance is fixed.
+\end{proof}
+
+\section{Coverage and verification}
+The FORMULA field of A084261 contains several statements. Their relation
+to this note is recorded below; distinct formulas are not conflated with
+the recurrence conjecture.
+
+\begingroup\small
+\begin{longtable}{@{}p{0.43\linewidth}p{0.50\linewidth}@{}}
+\toprule
+Source item & Coverage \\
+\midrule
+Inclusive even-index factorial sum & Definition \eqref{eq:sum}; prior
+enumeration proved by Fang--Hamaker--Troyka (2020, 2022). \\
+Parity-filtered sum & Same sum, with odd summands zero; the parity
+sequence $b$ makes the convention explicit. \\
+Mathar's 2012 recurrence & Proved for all $n\geq3$ in Theorem~\ref{thm:main}. \\
+Jovovic's 25 September 2003 EGF & Reproved in
+Corollary~\ref{cor:weighted}; earlier formula credited. \\
+Hanna's 17 January 2006 fraction & Proved in
+Corollary~\ref{cor:hankel}; earlier formula credited;
+prior transform proof Barry (2009), Proposition~22. \\
+Rousseau's 14 March 2006 asymptotic & Proved for all indices in
+Corollary~\ref{cor:asymptotic}, extended to $t>0$; earlier formula credited. \\
+Barry's 11 April 2010 row-sum and Hankel comments & Proved in
+Corollaries~\ref{cor:triangle} and \ref{cor:hankel}; earlier entries credited. \\
+Fang--Hamaker--Troyka's weighted EGF & Reproved; prior proof
+Fang--Hamaker--Troyka (2020; 2022), Proposition~4.13 in v3. \\
+A161556 row/column formulas and bivariate fraction & Proved in
+Corollaries~\ref{cor:triangle} and \ref{cor:hankel}. \\
+A161556 displayed production matrix; links A155856, A156367 &
+Not covered. \\
+A137704 product and aerated-factorial Hankel description & Proved in
+Corollary~\ref{cor:hankel}, including $t=0$. \\
+A137704: aerated A003319; Kotesovec's 2024 determinant asymptotic &
+Not covered. \\
+A002896 lattice-walk formulas (linked beside Rousseau's asymptotic) &
+Not covered; this is a different sequence. \\
+Fang--Hamaker--Troyka's other pattern classes and open directions &
+Not covered. \\
+Fang--Hamaker--Troyka, Section~5.1: two signs on fixed points &
+Prior interpretation cited; recurrence and asymptotic consequences
+proved in Corollary~\ref{cor:clans}. \\
+Weighted recurrence, moment positivity and Appell identity &
+Proved consequences; not posed as conjectures in A084261. \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The word ``Proved'' in the table applies to formulas actually stated
+in the indicated entries. The weighted extensions are additional
+consequences, not refutations or answers to unposed questions.
+
+The Lean declaration
+\href{https://github.com/the-omega-institute/trureturing/blob/b0f7c01b01511ea00428c1b6edad5dd2b372eaf8/D5/S1/Recurrence/MatharA084261.lean}
+{\texttt{D5.S1.Recurrence.MatharA084261.result}}
+proves exactly \eqref{eq:sum}--\eqref{eq:rec} for all natural $n\geq3$,
+with integer arithmetic in the recurrence. The generating-function identities
+and the polynomial recurrence, moment consequences and asymptotics have
+the written proofs above; those claims are distinct from this declaration.
+The accompanying Python checker compares the defining sum with the recurrence
+for $0\leq n\leq880$, and tests \eqref{eq:weightedrec} for
+$t\in\{-2,-1,0,1,2\}$ and $3\leq n\leq120$ using exact integers.
+It also checks row polynomials, the Appell identity, finite continued-fraction
+coefficients and Hankel determinants. These finite checks complement
+the universal proofs; the asymptotic claim rests on its written argument.
+The source package contains this text, the PDF, metadata and the exact
+checker with its expected output and rebuild instructions.
+
+\begin{thebibliography}{9}
+\bibitem{oeis}
+The OEIS Foundation Inc.,
+\emph{A084261: A binomial transform of factorial numbers}.
+Entry by Paul Barry, 26 May 2003; exponential generating function by
+Vladeta Jovovic, 25 September 2003; recurrence conjecture by
+R.\ J.\ Mathar, 30 November 2012.
+\url{https://oeis.org/A084261}. Accessed 8 November 2026.
+
+\bibitem{fang}
+Jonathan J. Fang, Zachary Hamaker and Justin M. Troyka,
+\emph{On pattern avoidance in matchings and involutions},
+\emph{Electronic Journal of Combinatorics} \textbf{29}(1) (2022), P1.39,
+published 25 February 2022. \url{https://doi.org/10.37236/10155}.
+First version: arXiv:2009.00079v1, 31 August 2020, Theorem~1.7 and
+Section~4.3. Version~3, 12 January 2022, Section~4.3,
+Proposition~4.13 and following example, p.~16; Table~2, p.~17.
+\url{https://arxiv.org/abs/2009.00079v3}.
+
+\bibitem{oeis-triangle}
+The OEIS Foundation Inc., \emph{A161556: Exponential Riordan array
+$[1+(\sqrt\pi/2)x e^{x^2/4}\operatorname{erf}(x/2),x]$}.
+Entry by Paul Barry, 13 June 2009.
+\url{https://oeis.org/A161556}. Accessed 8 November 2026.
+
+\bibitem{oeis-hankel}
+The OEIS Foundation Inc., \emph{A137704: Hankel transform of aerated
+factorial numbers}. Entry by Paul Barry, 7 February 2008;
+asymptotic formula by Vaclav Kotesovec, 20 January 2024.
+\url{https://oeis.org/A137704}. Accessed 8 November 2026.
+
+\bibitem{dlmf}
+NIST Digital Library of Mathematical Functions, Chapter~18,
+\emph{Orthogonal Polynomials}, Sections~18.3 and 18.5.
+\url{https://dlmf.nist.gov/18.3}; \url{https://dlmf.nist.gov/18.5}.
+Accessed 8 November 2026.
+
+\bibitem{barry-cf}
+Paul Barry, \emph{Continued Fractions and Transformations of Integer
+Sequences}, Journal of Integer Sequences \textbf{12} (2009), Article 09.7.6,
+Propositions~4 and 22, pp.~5--6 and 17--18. Published 4 November 2009.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL12/Barry3/barry93.pdf}.
+\end{thebibliography}
+
+\bigskip\noindent\small
+\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+\url{https://creativecommons.org/licenses/by/4.0/}
+\end{document}

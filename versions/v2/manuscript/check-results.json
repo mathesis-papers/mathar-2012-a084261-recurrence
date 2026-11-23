@@ -1,0 +1,56 @@
+{
+  "arithmetic": "exact integers and rational numbers",
+  "differential_equation_even_coefficients": [
+    0,
+    120
+  ],
+  "first_values": [
+    1,
+    1,
+    2,
+    4,
+    9,
+    21,
+    52,
+    134,
+    361,
+    1009,
+    2926,
+    8768
+  ],
+  "parity_seed_indices": [
+    0,
+    200
+  ],
+  "scope": "Finite exact checks; universal identities have written proofs in note.tex.",
+  "siblings": {
+    "appell_polynomial_identities": 120,
+    "asymptotic_scope": "Universal asymptotic formula has a written proof in note.tex.",
+    "continued_fraction_moment_coefficients": 305,
+    "hankel_determinants": 70,
+    "hankel_indices": [
+      0,
+      13
+    ],
+    "polynomial_recurrence_identities": 118,
+    "triangle_row_evaluations": 305
+  },
+  "status": "pass",
+  "sum_recurrence_indices": [
+    0,
+    880
+  ],
+  "sum_recurrence_values": 881,
+  "weighted_parameters": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "weighted_recurrence_checks": 590,
+  "weighted_recurrence_indices": [
+    3,
+    120
+  ]
+}
