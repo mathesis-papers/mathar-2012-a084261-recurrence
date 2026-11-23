@@ -5,13 +5,15 @@
 We give an alternative proof of Jovovic's 2003 exponential generating function and resolve Mathar's Conjecture in OEIS A084261, FORMULA, 30 November 2012, for every integer n >= 3. For a(n,t)=sum binomial(n,2k) k! t^(n-2k), the fixed-point-weighted generating function of Fang, Hamaker and Troyka (2020; journal version 2022) yields an explicit polynomial recurrence. A common moment representation also proves the recorded row sums, continued fraction, Hankel product and asymptotic equivalent, the last extending to every fixed real t > 0.
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24408321](https://doi.org/10.5281/zenodo.24408321)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24408320](https://doi.org/10.5281/zenodo.24408320)
 - License: CC-BY-4.0
 - Version: 2
 - Mathesis record: [mathar-2012-a084261-recurrence](https://mathesis-omega-research.apps.chrono-ai.fun/papers/mathar-2012-a084261-recurrence?version=2)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012). Mathesis, version 2. https://mathesis-omega-research.apps.chrono-ai.fun/papers/mathar-2012-a084261-recurrence?version=2
+Haobo Ma, Wenlin Zhang (2026). Weighted extensions of Jovovic's 2003 formula: resolving Mathar's conjecture (OEIS A084261, FORMULA, 30 November 2012). Mathesis, version 2. https://doi.org/10.5281/zenodo.24408321
 
 ## Statement progress
 
